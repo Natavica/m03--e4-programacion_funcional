@@ -1,160 +1,92 @@
-# Módulo 03: Laboratorio Virtual 1
-## Laboratorio Virtual: Integración de JSON, Estructuras de Datos y Algoritmos en el Sitio Web del Hospital
+# Gestión de Consultas Médicas
+**Revisar: consultas.html y consultas.js**
 
-### Descripción del Proyecto
-*En este taller, los estudiantes deben continuar incorporando funcionalidades de JavaScript básico en el proyecto del hospital. Además de manipular el DOM, validar datos, y manejar errores, se pedirá la entrada de información del usuario a través de un prompt, mostrando los resultados por consola o como alertas en el navegador*
+## Descripción del Proyecto
 
----
+Este proyecto está diseñado para gestionar la información relacionada con doctores, servicios médicos, pacientes y citas. A lo largo del código se emplean conceptos avanzados de **JavaScript**, como la manipulación de **JSON**, el uso de **algoritmos** y **estructuras de datos**, **programación funcional**, **asíncrona** y **orientada a objetos**.
 
-### Cómo visualizar el proyecto en un navegador
-*Clona o descarga este repositorio en tu máquina local.
-Navega hasta el directorio del proyecto.
-Abre el archivo index.html directamente en un navegador web. Puedes hacerlo de las siguientes maneras:
-Haciendo doble clic sobre el archivo index.html.
-Arrastrando y soltando el archivo en una ventana de tu navegador.
-Abriendo el archivo desde la opción "Abrir archivo" en el menú de tu navegador.
-El sitio web se renderizará en el navegador, donde podrás navegar por las diferentes vistas (Home, Equipo Médico, Contacto).*
+### Datos Manipulados con JSON
 
----
+Los datos de los doctores y las citas se almacenan en formato **JSON**. Esto nos permite organizar y manipular eficientemente la información dentro de la aplicación.
 
-### Estructura de Carpetas y Archivos
-```bash
+#### Datos de Doctores:
+- **id**: Identificador único del doctor.
+- **nombre**: Nombre completo del doctor.
+- **especialidad**: Especialidad médica del doctor (por ejemplo, Cardiología, Pediatría, etc.).
+- **experiencia**: Años de experiencia del doctor.
 
-/Estructura
-│
-├── /assets/
-├── ├── /js/
-│   │   └── equipo.json
-│   │   └── clone.js
-│   │   └── estructuraDatos.js
-│   │   └── citas.js
-│   │   └── filter.js
-│   │   └── navbar.js
-│   │   └── prompt.js
-│
-│   └── /images/ 
-│   ├── /scss/
-│       └── /abstracts/  
-│       └── /components/  
-│       └── /core/
-│       └── /layout/
-│       └── /pages/
-│       └── /themes/
-│       └── /vendors/    
-│       └── main.scss 
-│       └── main.css.map
-│       └── main.css
-│ 
-*
-├── index.html              # Página principal (Home)
-├── equipo.html             # Página del equipo médico
-└── contacto.html           # Página de contacto
-└── citas.html              # Con el botón agendar se agregan citas y con edl botón atender se borran
-└── gestion.html            # Página de contacto
+#### Datos de Citas:
+- **id**: Identificador único de la cita.
+- **doctorId**: Relacionado con el ID del doctor que atenderá la cita.
+- **paciente**: Nombre del paciente que solicita la cita.
+- **fecha**: Fecha en la que se llevará a cabo la cita.
 
-```
+Estos datos se cargan en la interfaz a través de una **simulación de API**, que recupera los datos en formato JSON de un objeto estático después de una breve espera para simular el tiempo de carga de una API real.
 
----
+#### Algoritmos y Estructuras de Datos Utilizados
+
+### Algoritmos Implementados:
+**-Búsqueda:** Se implementa un algoritmo de búsqueda para filtrar doctores por especialidad. Usamos el método filter() para realizar la búsqueda.
+
+**-Ordenamiento:** Los doctores pueden ser ordenados por años de experiencia utilizando el método sort() de JavaScript. Este algoritmo ordena a los doctores de mayor a menor experiencia.
+
+### Estructuras de Datos Utilizadas:
+**-Listas (Arrays):** Se utilizan para almacenar tanto los doctores como las citas.
+
+**-Pilas o Colas:** Aunque no se implementa directamente en este ejemplo, podrías utilizar pilas o colas para gestionar citas de pacientes (por ejemplo, utilizando un stack o queue).
+
+**Programación Funcional:**
+
+La programación funcional es un paradigma que se emplea en este proyecto para realizar operaciones como currying, composición de funciones y el uso de funciones puras.
+
+**-Currying**
+-El currying es utilizado para crear funciones más específicas a partir de funciones generales. Aquí lo aplicamos para calcular el costo total de las consultas, donde primero definimos el costo por consulta y luego calculamos el costo total dependiendo de la cantidad.
+
+**-Composición de Funciones**
+-Usamos la composición de funciones para aplicar descuentos al costo de las consultas. La composición de funciones se logra al crear una función que aplica un descuento sobre el costo total calculado.
+
+**-Programación Asíncrona**
+-El proyecto utiliza promesas y async/await para manejar las operaciones asincrónicas, como la carga de los doctores desde la "API". Se utiliza una promesa para simular el tiempo de espera de una API real.
+
+**-Manejo de Eventos**
+-El proyecto utiliza event listeners para escuchar las interacciones del usuario, como el registro de citas o la búsqueda de doctores. Cada vez que el usuario hace clic en un botón o realiza una acción, se ejecutan las funciones correspondientes.
 
 
-# Documentación del Proyecto
+## Instrucciones para Ejecutar y Probar el Proyecto
 
-## 1. Operaciones con JSON
+Sigue estos pasos para ejecutar y probar el proyecto correctamente:
 
-### Carga del JSON con `fetch()`
-El archivo `equipo.json` se carga utilizando `fetch`, que envía una solicitud HTTP al servidor.
+### 1. Descargar los Archivos
+- Asegúrate de tener los archivos necesarios:
+  - `index.html`: Archivo principal que contiene la estructura HTML de la interfaz.
+  - `consultas.js`: Archivo que contiene toda la lógica del proyecto escrita en JavaScript.
+  - Cualquier otro archivo adicional, como estilos CSS o datos JSON simulados, si es necesario.
+  
+### 2. Abrir en un Navegador
+- Abre el archivo `index.html` en un navegador web moderno (se recomienda usar **Google Chrome** o **Mozilla Firefox** para garantizar compatibilidad).
 
-- **Validación de respuesta:** Se verifica si el servidor devuelve un código de estado exitoso (`response.ok`).
-- **Conversión de datos:** La respuesta se convierte en un objeto JavaScript manipulable mediante `response.json()`.
+### 3. Interacción con la Interfaz
+Una vez que el proyecto esté cargado en el navegador, puedes interactuar con las siguientes funcionalidades:
 
-### Clonación del JSON
-Se usó `JSON.parse(JSON.stringify(data))` para crear una copia profunda del objeto JSON. Esto asegura que los cambios en la copia no afecten al original.
+#### 3.1 Cargar Doctores
+- Haz clic en el botón **"Cargar Doctores"** para cargar los datos de los doctores simulados desde la API. 
+- Esto mostrará una lista de doctores disponibles junto con su especialidad y experiencia.
 
-### Fusión (merge)
-La fusión de datos se realiza comparando objetos en el arreglo original (`data`) con los actualizados en la copia (`clonedData`). Si se encuentra una coincidencia, se reemplaza con el objeto actualizado.
+#### 3.2 Registrar Citas
+1. Completa los campos obligatorios:
+   - **Doctor ID**: Ingresa el ID del doctor que atenderá la cita.
+   - **Paciente**: Escribe el nombre del paciente.
+   - **Fecha**: Selecciona la fecha para la cita.
+2. Haz clic en el botón **"Registrar Cita"**.
+3. Aparecerá un mensaje de confirmación, y la cita será añadida al registro.
 
----
+#### 3.3 Buscar Doctores por Especialidad
+1. Escribe el nombre de una especialidad en el campo de búsqueda.
+2. Haz clic en el botón **"Buscar"**.
+3. Se mostrarán los doctores que coincidan con la especialidad ingresada.
 
-## 2. Estructuras de datos
-
-### Arreglos
-Los arreglos (`[]`) son la base para almacenar y manipular datos en JSON. También se usan para:
-
-- Crear listas como `pila.data` o `cola.queue`.
-- Recorrer y filtrar datos (médicos, pacientes).
-
-### Pilas (LIFO: Last In, First Out)
-Implementada en la clase `Pila`.
-
-#### Operaciones principales:
-- `push(elemento)`: Agrega un elemento al final del arreglo.
-- `pop()`: Elimina y devuelve el último elemento.
-- `length()`: Devuelve la cantidad de elementos.
-
-#### Uso en el proyecto:
-Se usó para mostrar una lista de pacientes en orden inverso al que fueron añadidos.
-
-### Colas (FIFO: First In, First Out)
-Implementada en la clase `Cola`.
-
-#### Operaciones principales:
-- `enqueue(item)`: Agrega un elemento al final.
-- `dequeue()`: Elimina y devuelve el primer elemento.
-- `isEmpty()`: Verifica si la cola está vacía.
-- `length()`: Devuelve el número de elementos.
-
-#### Uso en el proyecto:
-Se usó para manejar la lista de pacientes pendientes por atender en el orden en que llegaron.
+#### 3.4 Ver Todas las Citas
+- Haz clic en el botón **"Ver Citas"** para listar todas las citas registradas, mostrando información del paciente, fecha y doctor asignado.
 
 ---
 
-## 3. Algoritmos implementados
-
-### Recorrido de objetos JSON
-Se utilizaron métodos como `forEach`, `map` y `filter` para:
-- Iterar sobre los datos cargados.
-- Modificar especialidades (ejemplo: cambiar "Otorrinolaringología" por "Ortodoncia").
-- Filtrar médicos según especialidad seleccionada.
-
-#### Complejidad:
-- **`forEach` y `map`:** \( O(n) \), donde \( n \) es el número de elementos en el arreglo.
-- **`filter`:** \( O(n) \), ya que evalúa cada elemento para determinar si cumple con la condición.
-
-### Fusión de datos (merge)
-Por cada elemento en el arreglo original (`data`), se busca el correspondiente en la copia (`clonedData`) usando `find`. Si se encuentra, se reemplaza; de lo contrario, se mantiene el original.
-
-#### Complejidad:
-- **Búsqueda con `find`:** \( O(m) \), donde \( m \) es el tamaño de `clonedData`.
-- **Total:** \( O(n \cdot m) \).
-
-### Renderizado de pacientes y doctores
-Se generan dinámicamente tarjetas o filas HTML con los datos.
-
-#### Complejidad:
-\( O(n) \), donde \( n \) es el número de pacientes o doctores a mostrar.
-
----
-
-## 4. Funciones auxiliares
-
-### `obtenerFechaHoraActual()`
-- Devuelve la fecha y hora formateada según la configuración local.
-- **Uso:** Registrar la hora en que se agenda una cita.
-
-### `renderizarPacientes()`
-- Crea una estructura HTML para mostrar pacientes en espera.
-- **Uso:** Actualiza dinámicamente la lista de pacientes.
-
----
-
-## 5. Resumen de utilidad
-
-### JSON y estructuras de datos:
-- Facilitan el almacenamiento y manejo eficiente de información (médicos, pacientes).
-
-### Pilas y colas:
-- **Pila:** Visualización en orden inverso.
-- **Cola:** Orden de llegada.
-
-### Algoritmos:
-- Procesan datos de forma eficiente, desde modificaciones simples hasta renderizado dinámico.
