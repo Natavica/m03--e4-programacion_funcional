@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Espacial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/scss/main.css">
+</head>
+
+<body>
+    <div class="body__container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar__container">
+                    <a href="index.html" class="logo">
+                        <img src="./assets/images/logo--swh.png" alt="logo starwars hospital" class="navbar__img">
+                    </a>
+                    <div class="navbar__icon" onclick="toggleMenu()">
+                        &#9776;
+                    </div>
+                    <ul class="navbar__links" id="navLinks">
+                        <li class="navbar__links__item"><a href="index.html">Home</a></li>
+                        <li class="navbar__links__item"><a href="equipo.html">Equipo</a></li>
+                        <li class="navbar__links__item"><a href="contacto.html">Contacto</a></li>
+                        <li class="navbar__links__item"><a href="gestion.html">Gestión</a></li>
+                        <li class="navbar__links__item"><a href="citas.html">Citas</a></li>
+                        <li class="navbar__links__item navbar__links__item--cta"><a id="reserva">Reserva tu cita</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section section--bienvenida">
+                <h1 class="section__title--primary"> </h1>
+                <h2 class="section__title">Calculadora de Consultas Médicas</h2>
+                <p class="section__text"></p>
+            </section>
+
+            <section class="section section--consultas display-none">
+                <!-- Costo Total -->
+                <h2>Costo Total</h2>
+                <label for="precio">Precio por consulta:</label>
+                <input type="number" id="precio" placeholder="Precio por consulta">
+                <label for="consultas">Número de consultas:</label>
+                <input type="number" id="consultas" placeholder="Número de consultas">
+                <button id="btnCostoTotal">Calcular Costo Total</button>
+                <div id="resultadoCosto"></div>
+            
+                <!-- Tiempo Promedio -->
+                <h2>Tiempo Promedio de Espera</h2>
+                <label for="tiempos">Tiempos de espera (separados por comas):</label>
+                <input type="text" id="tiempos" placeholder="Ejemplo: 10,15,20">
+                <button id="btnPromedio">Calcular Promedio</button>
+                <div id="resultadoPromedio"></div>
+            
+                <!-- Total de Horas -->
+                <h2>Total de Horas</h2>
+                <label for="horas">Horas de consulta por día (separadas por comas):</label>
+                <input type="text" id="horas" placeholder="Ejemplo: 2,4,3,5,6">
+                <button id="btnHorasTotales">Calcular Horas Totales</button>
+                <div id="resultadoHoras"></div>
+            
+                <!-- Costo con Descuento -->
+                <h2>Costo con Descuento</h2>
+                <label for="precioDescuento">Precio por consulta:</label>
+                <input type="number" id="precioDescuento" placeholder="Precio por consulta">
+                <label for="consultasDescuento">Número de consultas:</label>
+                <input type="number" id="consultasDescuento" placeholder="Número de consultas">
+                <label for="descuento">Descuento (porcentaje):</label>
+                <input type="number" id="descuento" placeholder="Ejemplo: 10">
+                <button id="btnCostoDescuento">Calcular Costo con Descuento</button>
+                <div id="resultadoDescuento"></div>
+            </section>
+
+            <section class="section section--consultas">
+                <!-- Cargar Doctores -->
+                <h2>Lista de Doctores</h2>
+                <button onclick="cargarDoctores()">Cargar Doctores</button>
+                <ul id="listaDoctores"></ul>
+
+                <!-- Registro de Citas -->
+                <h2>Registrar Cita</h2>
+                <label for="doctorId">Doctor ID:</label>
+                <input type="number" id="doctorId">
+                <label for="paciente">Paciente:</label>
+                <input type="text" id="paciente">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha">
+                <button id="btnRegistrarCita">Registrar Cita</button>
+                <p id="resultadoCita"></p>
+
+                <h2>Costos de Consultas</h2>
+                <label for="costoConsulta">Costo por consulta:</label>
+                <input type="number" id="costoConsulta">
+                <label for="cantidadConsultas">Cantidad de consultas:</label>
+                <input type="number" id="cantidadConsultas">
+                <button onclick="calcularCostoTotal()">Calcular Costo Total</button>
+                <p id="resultadoCosto"></p>
+
+                <h2>Buscar Doctores por Especialidad</h2>
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad">
+                <button onclick="buscarPorEspecialidad()">Buscar</button>
+                <ul id="resultadoBusquedaEspecialidad"></ul>
+
+                <h2>Listar Citas</h2>
+                <button onclick="listarCitas()">Ver Citas</button>
+                <ul id="listaCitas"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__section">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="equipo.html">Equipo</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Reserva tu cita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <ul>
+                        <li>+GSW-1200-77-1138</li>
+                        <li>hospital@estarwars.com</li>
+                        <li>Órbita de la Estrella Polis Mass, 12.5</li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <div class="icon social-icons">
+                        <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                        <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                        <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Hospital Star Wars.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/js/consultas.js"></script>
+    <!-- <script src="assets/js/prompt.js"></script> -->
+    <script src="assets/js/navbar.js"></script>
+</body>
+
+</html>

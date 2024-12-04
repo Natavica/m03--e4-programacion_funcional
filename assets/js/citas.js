@@ -161,3 +161,11 @@ botonAgendar.addEventListener('click', () => {
     const contenido = renderizarPacientes(cola.queue);
     document.getElementById('pacientes-por-atender').innerHTML = contenido;
   });
+
+
+
+
+
+
+
+

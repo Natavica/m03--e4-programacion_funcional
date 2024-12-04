@@ -560,4 +560,8 @@ input {
   border: none;
   padding: 8px 10px;
   font-family: "Titillium Web", sans-serif;
+}
+
+.display-none {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
