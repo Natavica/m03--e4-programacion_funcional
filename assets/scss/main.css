@@ -564,4 +564,20 @@ input {
 
 .display-none {
   display: none;
+}
+
+.card {
+  background: #f6f3f3;
+  padding: 20px;
+  border-radius: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  padding-left: 30px;
+}
+
+.card ul li:first-child {
+  padding-top: 20px;
 }/*# sourceMappingURL=main.css.map */

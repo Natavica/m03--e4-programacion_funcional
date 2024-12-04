@@ -85,38 +85,48 @@
 
             <section class="section section--consultas">
                 <!-- Cargar Doctores -->
-                <h2>Lista de Doctores</h2>
-                <button onclick="cargarDoctores()">Cargar Doctores</button>
-                <ul id="listaDoctores"></ul>
+                <div class="card">
+                    <h2>Lista de Doctores</h2>
+                    <button onclick="cargarDoctores()">Cargar Doctores</button>
+                    <ul id="listaDoctores"></ul>
+                </div>
 
                 <!-- Registro de Citas -->
-                <h2>Registrar Cita</h2>
-                <label for="doctorId">Doctor ID:</label>
-                <input type="number" id="doctorId">
-                <label for="paciente">Paciente:</label>
-                <input type="text" id="paciente">
-                <label for="fecha">Fecha:</label>
-                <input type="date" id="fecha">
-                <button id="btnRegistrarCita">Registrar Cita</button>
-                <p id="resultadoCita"></p>
+                <div class="card">
+                    <h2>Registrar Cita</h2>
+                    <label for="doctorId">Doctor ID:</label>
+                    <input type="number" id="doctorId">
+                    <label for="paciente">Paciente:</label>
+                    <input type="text" id="paciente">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha">
+                    <button id="btnRegistrarCita">Registrar Cita</button>
+                    <p id="resultadoCita"></p>
+                </div>
 
-                <h2>Costos de Consultas</h2>
-                <label for="costoConsulta">Costo por consulta:</label>
-                <input type="number" id="costoConsulta">
-                <label for="cantidadConsultas">Cantidad de consultas:</label>
-                <input type="number" id="cantidadConsultas">
-                <button onclick="calcularCostoTotal()">Calcular Costo Total</button>
-                <p id="resultadoCosto"></p>
+                <div class="card">
+                    <h2>Costos de Consultas</h2>
+                    <label for="costoConsulta">Costo por consulta:</label>
+                    <input type="number" id="costoConsulta">
+                    <label for="cantidadConsultas">Cantidad de consultas:</label>
+                    <input type="number" id="cantidadConsultas">
+                    <button onclick="calcularCostoTotal()">Calcular Costo Total</button>
+                    <p id="resultadoCosto"></p>
+                </div>
 
-                <h2>Buscar Doctores por Especialidad</h2>
-                <label for="especialidad">Especialidad:</label>
-                <input type="text" id="especialidad">
-                <button onclick="buscarPorEspecialidad()">Buscar</button>
-                <ul id="resultadoBusquedaEspecialidad"></ul>
+                <div class="card">
+                    <h2>Buscar Doctores por Especialidad</h2>
+                    <label for="especialidad">Especialidad:</label>
+                    <input type="text" id="especialidad">
+                    <button onclick="buscarPorEspecialidad()">Buscar</button>
+                    <ul id="resultadoBusquedaEspecialidad"></ul>
+                </div>
 
-                <h2>Listar Citas</h2>
-                <button onclick="listarCitas()">Ver Citas</button>
-                <ul id="listaCitas"></ul>
+                <div class="card">
+                    <h2>Listar Citas</h2>
+                    <button onclick="listarCitas()">Ver Citas</button>
+                    <ul id="listaCitas"></ul>
+                </div>
             </section>
         </main>
 
